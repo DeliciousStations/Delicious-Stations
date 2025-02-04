@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Stations - Popcorn & Cotton Candy Rentals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFAF3;
+            text-align: center;
+        }
+        header {
+            background: linear-gradient(to right, #FFB6C1, #ADD8E6); /* Light pink to baby blue */
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            border-bottom: 5px solid #DDA0DD; /* Lavender */
+        }
+        nav {
+            background-color: #98FB98; /* Mint Green */
+            padding: 10px;
+        }
+        nav a {
+            color: #555;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+        }
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .next {
+            right: 0;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        footer {
+            background: linear-gradient(to right, #ADD8E6, #FFB6C1);
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        /* Buttons */
+        .btn {
+            background-color: #FFB6C1; /* Light Pink */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #DDA0DD; /* Lavender */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Delicious Stations - Popcorn & Cotton Candy Rentals
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Delicious Stations!</h2>
+        <p>Make your event unforgettable with our popcorn and cotton candy machines!</p>
+        <button class="btn">Book Now</button>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We provide high-quality popcorn and cotton candy machine rentals for birthdays, weddings, and events.</p>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="slideshow-container">
+            <img class="slides" src="popcorn.jpg" alt="Popcorn Machine">
+            <img class="slides" src="cottoncandy.jpg" alt="Cotton Candy Machine">
+            <img class="slides" src="event.jpg" alt="Event Setup">
+            <a class="prev" onclick="changeSlide(-1)">❮</a>
+            <a class="next" onclick="changeSlide(1)">❯</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>📞 Phone: 03 29 18 19</p>
+        <p>📩 WhatsApp: 03 29 18 19</p>
+        <p>📷 Follow us on Instagram: <a href="https://www.instagram.com/deliciousstations" target="_blank">@deliciousstations</a></p>
+    </section>
+
+    <footer>
+        &copy; 2025 Delicious Stations | All Rights Reserved
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        function changeSlide(n) {
+            let slides = document.getElementsByClassName("slides");
+            slideIndex += n;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            if (slideIndex < 1) { slideIndex = slides.length; }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
